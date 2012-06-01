@@ -8,8 +8,12 @@
     "url": "git://github.com/kevinohara80/staque.git"
   },
   "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "async": "~0.1.22"
+  },
+  "devDependencies": {
+    "tap": "~0.2.5"
+  },
   "optionalDependencies": {},
   "engines": {
     "node": "*"
