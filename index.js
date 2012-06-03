@@ -21,13 +21,15 @@ var Staque = function(opts) {
 Staque.prototype.stat = function(sq, cb) {
   if(!cb) cb = sq;
   var self = this;
-  var stat = {}
+  var stat = [];
   if(self._queues) {
     for(var key in self._queues) {
-      stat[key] = {
+      var queue = {
+        name: key,
         length: self._queues[key].length(),
         delay: self._delay
       }
+      stat.push(queue);
     }
   }
   cb(null, stat);
@@ -49,8 +51,12 @@ Staque.prototype.load = function(sq, task, cb) {
   var q;
   
   // check to see if we need a subqueue
-  if(opts.sq == null && !self._queues._default) {
-    self._queues._default = q = async.queue(self._job, self._concurrency);
+  if(opts.sq == null) {
+    if(!self._queues._default) {
+      self._queues._default = q = async.queue(self._job, self._concurrency);
+    } else {
+      q = self._queues._default;
+    }
   } else if(!self._queues[sq]) {
     self._queues[sq] = q = async.queue(self._job, self._concurrency);
   } else {
