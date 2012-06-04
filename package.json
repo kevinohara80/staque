@@ -2,6 +2,7 @@
   "author": "Kevin O'Hara <kevinohara80@gmail.com> (http://kevinmohara.com)",
   "name": "staque",
   "description": "staque provides sync and async job queuing",
+  "keywords": ["queue", "sync", "job", "queueing", "async"],
   "version": "0.0.1",
   "repository": {
     "type": "git",
