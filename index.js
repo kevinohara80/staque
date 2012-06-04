@@ -1,9 +1,10 @@
 var async = require('async');
 
 var Staque = function(opts) {
+  
   this._queues = {}
-  this._concurrency = opts.concurrency || 1;
-  this._delay = opts.delay || 0; 
+  this._concurrency = (opts.concurrency && opts.concurrency > 1) ? opts.concurrency : 1; 
+  this._delay = (opts.delay && opts.delay >= 0) ? opts.delay : 0;
   
   var self = this;
   
