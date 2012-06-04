@@ -48,3 +48,10 @@ test('callbacks should be optional', function(t){
   queue.load('yetanother', 'subqueue1');
   t.end();
 });
+
+test('callbacks should fire', function(t){
+  var queue = staque.create(opts);
+  queue.load('blah', function(err) {
+    t.end();
+  });
+});
