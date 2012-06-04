@@ -13,12 +13,12 @@ Create a new job queue and load a job.
 
 ```js
 var queue = staque.create({
-  job: function(task, cb) {
+  job: function(task, cb) {  // <- required, the job to run
     console.log(task);
-    cb();
+    cb();   
   }, 
-  delay: 100,
-  concurrency: 0
+  delay: 100,      // <- optional, sets a delay between sub-queue job execution
+  concurrency: 0   // <- optional, number of concurrent jobs in each sub-queue
 });
 
 queue.load('blah', function(err) {
