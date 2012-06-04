@@ -22,6 +22,7 @@ test('should set the concurrency on create', function(t) {
   var queue = staque.create(opts);
   t.equal(queue._concurrency !== null, true, 'concurrency should exist');
   t.equal(typeof queue._concurrency, 'number', 'concurrency should be a number');
+  t.equal(queue._concurrency, 3, 'concurrency should be set to 3');
   t.end();
 });
 
@@ -29,5 +30,6 @@ test('should set the delay on create', function(t) {
   var queue = staque.create(opts);
   t.equal(queue._delay !== null, true, 'delay should exist');
   t.equal(typeof queue._delay, 'number', 'delay should be a number');
+  t.equal(queue._delay, 500, 'delay should be set to 500');
   t.end();
 });
