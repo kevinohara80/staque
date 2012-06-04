@@ -20,5 +20,12 @@
   }, 
   "scripts": {
     "test": "tap ./tests"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://raw.github.com/kevinohara80/staque/master/LICENSE"
+  },
+  "bugs" : { 
+    "url": "http://github.com/kevinohara80/staque/issues"
   }
 }
