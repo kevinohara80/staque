@@ -34,13 +34,19 @@ queue.load('blah', function(err) {
 Note: Not providing a sub-queue just puts your job in a queue called `_default`.
 
 ```js
-queue.load('client1', 'foo', function(err) {
+queue.load('foo task', 'client1', function(err) {
   if(!err) console.log('queued a job in a sub-queue');
 });
 
-queue.load('bar', function(err) {
+queue.load('foo task', function(err) {
   if(!err) console.log('queued a job in the _default queue');
 });
+```
+
+Callbacks are also optional...
+
+```js
+queue.load('foo task', 'client1');
 ```
 
 You can request the status of your queues with the `stat()` call. The call will return an array of the queues, current jobs, and other data.

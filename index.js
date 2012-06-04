@@ -36,22 +36,25 @@ Staque.prototype.stat = function(sq, cb) {
 }
 
 // load up a task into the queue
-Staque.prototype.load = function(sq, task, cb) {
-  var self = this;  
-  var opts = {}
-  if(arguments.length == 2) {
-    opts.task = sq;
-    opts.cb = task;
-  } else {
-    opts.sq = sq;
-    opts.task = task;
-    opts.cb = cb;
-  }
+Staque.prototype.load = function(task, sq, cb) {
+  
+  var args = Array.prototype.slice.call(arguments);  
+  var self = this; 
+   
+  if(arguments.length === 2) {
+    if(typeof args[1] === 'function') {
+      cb = args[1];
+      sq = null;
+    } else {
+      sq = args[1];
+      cb = null;
+    }
+  } 
   
   var q;
   
   // check to see if we need a subqueue
-  if(opts.sq == null) {
+  if(!sq) {
     if(!self._queues._default) {
       self._queues._default = q = async.queue(self._job, self._concurrency);
     } else {
@@ -63,8 +66,8 @@ Staque.prototype.load = function(sq, task, cb) {
     q = self._queues[sq];
   }
   
-  q.push(opts.task);
-  opts.cb();
+  q.push(task);
+  if(cb) cb();
 }
 
 module.exports.create = function(opts) {
