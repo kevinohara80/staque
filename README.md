@@ -31,7 +31,7 @@ queue.load('blah', function(err) {
 
 ***staque*** also provides sub-queuing. This is useful if you are doing something like queueing jobs by client. Each sub-queue acts independently. To load a job into a sub-queue, just provide a sub-queue key.
 
-Note: Not providing a sub-queue just puts your job in a queue called `_default`.
+Note: Not providing a sub-queue just puts your job in a sub-queue called `_default`.
 
 ```js
 queue.load('foo task', 'client1', function(err) {
