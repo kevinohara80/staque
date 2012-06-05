@@ -3,7 +3,7 @@
   "name": "staque",
   "description": "build multiple, on-the-fly synchronous job queues",
   "keywords": ["queue", "sync", "job", "queueing", "async"],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "git://github.com/kevinohara80/staque.git"

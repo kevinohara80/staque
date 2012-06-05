@@ -76,4 +76,4 @@ module.exports.create = function(opts) {
   return new Staque(opts);
 }
 
-module.exports.version = '0.0.1';
+module.exports.version = '0.0.3';
